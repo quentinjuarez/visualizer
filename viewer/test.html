@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>WebSocket Audio Test</title>
+  </head>
+  <body>
+    <h1>WebSocket Audio Test</h1>
+    <pre id="output">Connecting...</pre>
+
+    <script>
+      const output = document.getElementById("output");
+      const socket = new WebSocket("ws://localhost:8765");
+
+      socket.onopen = () =>
+        (output.textContent = "Connected to WebSocket server!");
+      socket.onmessage = (event) =>
+        (output.textContent += "\nReceived: " + event.data);
+      socket.onerror = (error) =>
+        (output.textContent = "Error: " + error.message);
+      socket.onclose = () => (output.textContent = "Connection closed.");
+    </script>
+  </body>
+</html>
