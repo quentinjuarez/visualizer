@@ -39,7 +39,7 @@ const setupP5 = () => {
 
       // Dessiner les barres de fréquence
       props.frequenciesData.forEach((magnitude, index) => {
-        const x = index * barWidth;
+        // const x = index * barWidth;
 
         // Appliquer une échelle logarithmique pour l'axe X
         // Nous appliquons p.log pour étirer les basses fréquences et compresser les hautes fréquences
@@ -60,7 +60,7 @@ const setupP5 = () => {
       p.textAlign(p.CENTER, p.TOP);
 
       // Afficher les paliers de fréquence à intervalles spécifiques
-      frequencyIntervals.forEach((freq, i) => {
+      frequencyIntervals.forEach((freq, _i) => {
         // Appliquer le logarithme à la position X
         const freqPos = p.map(
           p.log(freq),
